@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className='footer'>
       created by{' '}
       <a
-        href='https://github.com/nico-rodriguez/front-end-developer-devChallenges/tree/master/github-jobs'
+        href='https://github.com/nico-rodriguez/front-end-developer-devChallenges/tree/master/job-search'
         className='footer__link'
         target='_blank'
         rel='noreferrer'

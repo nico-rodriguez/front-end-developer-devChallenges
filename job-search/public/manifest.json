@@ -1,6 +1,6 @@
 {
-  "short_name": "GitHub Jobs",
-  "name": "Browse jobs from GitHub",
+  "short_name": "Job Search",
+  "name": "Browse jobs",
   "icons": [
     {
       "src": "devchallenges.png",
