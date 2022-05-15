@@ -79,13 +79,13 @@
 
 section {
   display: flex;
-  flex-wrap: wrap;
   gap: 32px;
 }
 
 @media only screen and (max-width: 768px) {
   section {
     gap: 23px;
+    flex-wrap: wrap;
   }
 }
 
