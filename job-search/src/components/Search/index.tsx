@@ -11,9 +11,11 @@ interface Values {
   locationRadio: string;
 }
 
+type JobType = 'Full Time' | 'Part Time';
+
 export interface Job {
   id: string;
-  type: string;
+  type: JobType;
   url: string;
   created_at: string;
   company: string;
