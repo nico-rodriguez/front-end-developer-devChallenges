@@ -26,9 +26,6 @@ export default function SearchResults({ results }: SearchResultsProps) {
   // Invoke when user click to request another page.
   const handlePageClick = (event: React.MouseEvent & { selected: number }) => {
     const newOffset = (event.selected * ITEMS_PER_PAGE) % results.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
   };
 
