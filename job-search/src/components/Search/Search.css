@@ -53,6 +53,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  flex-grow: 1;
 }
 
 .search-bar__input::placeholder {
@@ -86,9 +87,6 @@ section {
   section {
     gap: 23px;
   }
-}
-
-.form__filters {
 }
 
 .full-time-filter {
@@ -143,6 +141,6 @@ section {
   margin-bottom: 15px;
 }
 
-.form__results {
-  flex-grow: 1;
+.location-radio__input {
+  margin-right: 6px;
 }

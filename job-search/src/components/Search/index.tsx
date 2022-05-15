@@ -1,5 +1,8 @@
 import { Field, Form, Formik } from 'formik';
 import './Search.css';
+import SearchResults from './SearchResults';
+import jobs from '../../data/jobs.json';
+import { useState } from 'react';
 
 interface Values {
   search: string;
@@ -8,7 +11,22 @@ interface Values {
   locationRadio: string;
 }
 
+export interface Job {
+  id: string;
+  type: string;
+  url: string;
+  created_at: string;
+  company: string;
+  company_url: string;
+  location: string;
+  title: string;
+  description: string;
+  how_to_apply: string;
+}
+
 export default function Search() {
+  const [filteredJobs, setFilteredJobs] = useState<Job[]>(jobs as Job[]);
+
   return (
     <main className='main'>
       <Formik
@@ -19,7 +37,59 @@ export default function Search() {
           locationRadio: '',
         }}
         onSubmit={(values: Values) => {
-          console.log(values);
+          // Reset jobs to initial value
+          setFilteredJobs(jobs as Job[]);
+
+          // Apply filters (if provided)
+          if (values.fullTime) {
+            setFilteredJobs((jobs) =>
+              jobs.filter((job) => job.type === 'Full Time')
+            );
+          }
+          if (values.location) {
+            setFilteredJobs((jobs) =>
+              jobs.filter((job) =>
+                job.location
+                  .toLowerCase()
+                  .includes(values.location.toLowerCase())
+              )
+            );
+          }
+          if (values.locationRadio) {
+            if (values.locationRadio !== 'all') {
+              setFilteredJobs((jobs) =>
+                jobs.filter((job) =>
+                  job.location
+                    .toLowerCase()
+                    .includes(values.locationRadio.toLowerCase())
+                )
+              );
+            }
+          }
+
+          // Filter by search string (if provided)
+          if (values.search) {
+            setFilteredJobs((jobs) =>
+              jobs.filter(
+                (job) =>
+                  job.type
+                    .toLowerCase()
+                    .includes(values.search.toLowerCase()) ||
+                  job.company
+                    .toLowerCase()
+                    .includes(values.search.toLowerCase()) ||
+                  job.location
+                    .toLowerCase()
+                    .includes(values.search.toLowerCase()) ||
+                  job.title
+                    .toLowerCase()
+                    .includes(values.search.toLowerCase()) ||
+                  job.description
+                    .toLowerCase()
+                    .includes(values.search.toLowerCase())
+              )
+            );
+          }
         }}
       >
         <>
@@ -59,8 +129,19 @@ export default function Search() {
                   <Field
                     type='radio'
                     name='locationRadio'
+                    value='all'
+                    id='all'
+                    className='location-radio__input'
+                  />
+                  All
+                </label>
+                <label className='location-radio'>
+                  <Field
+                    type='radio'
+                    name='locationRadio'
                     value='london'
                     id='london'
+                    className='location-radio__input'
                   />
                   London
                 </label>
@@ -70,6 +151,7 @@ export default function Search() {
                     name='locationRadio'
                     value='amsterdam'
                     id='amsterdam'
+                    className='location-radio__input'
                   />
                   Amsterdam
                 </label>
@@ -77,8 +159,9 @@ export default function Search() {
                   <Field
                     type='radio'
                     name='locationRadio'
-                    value='new-york'
+                    value='new york'
                     id='new-york'
+                    className='location-radio__input'
                   />
                   New York
                 </label>
@@ -88,12 +171,13 @@ export default function Search() {
                     name='locationRadio'
                     value='berlin'
                     id='berlin'
+                    className='location-radio__input'
                   />
                   Berlin
                 </label>
               </fieldset>
             </div>
-            <div className='form__results'>results</div>
+            <SearchResults results={filteredJobs} />
           </section>
         </>
       </Formik>
