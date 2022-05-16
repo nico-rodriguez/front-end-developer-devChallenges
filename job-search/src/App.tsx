@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Job from './components/Job';
+import JobPage from './components/Job';
 import Search from './components/Search';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Search />} />
-        <Route path='/:jobId' element={<Job />} />
+        <Route path='/:jobId' element={<JobPage />} />
       </Routes>
       <Footer />
     </div>
