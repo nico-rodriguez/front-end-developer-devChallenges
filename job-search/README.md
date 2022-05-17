@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://job-search-26a082.netlify.app/">
       Solution
     </a>
     <span> | </span>
@@ -18,13 +18,29 @@
 
 ## Overview
 
-Visit []().
+Visit [https://job-search-26a082.netlify.app/](https://job-search-26a082.netlify.app/).
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+### Desktop
+
+Home page
+
+![screenshot](./screenshot-desktop-home.png)
+
+Job page
+
+![screenshot](./screenshot-desktop-job.png)
+
+### Mobile
+
+Home page
+
+![screenshot](./screenshot-mobile-home.png)
+
+Job page
+
+![screenshot](./screenshot-mobile-job.png)
 
 ### Built With
-
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -36,4 +52,6 @@ This application/site was created as a submission to a [DevChallenges](https://d
 Features:
 
 - Implemented in TypeScript.
-- 
+- Filter jobs by location, name or anything included in its description.
+- Job list organized inside a paginator.
+- Responsive design (desktop and mobile).
