@@ -35,6 +35,13 @@
   background-color: #ffffff;
 }
 
+@media only screen and (max-width: 768px) {
+  .item__details {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
 .job-type {
   font-weight: 700;
   font-size: 1.2rem;
@@ -45,6 +52,12 @@
   border-radius: 4px;
   padding: 6px 8px;
   margin-right: auto;
+}
+
+.location-time-wrapper {
+  background-color: #ffffff;
+  display: flex;
+  gap: 12px;
 }
 
 .job-location,

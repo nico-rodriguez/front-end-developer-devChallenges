@@ -12,10 +12,13 @@ export function Items({ currentItems }: { currentItems: Job[] }) {
             <h2 className='item__title'>{item.title}</h2>
             <div className='item__details'>
               <span className='job-type'>{item.type}</span>
-              <span className='job-location'>&#xe80b; {item.location}</span>
-              <span className='job-time'>
-                &#xe8b5; {new Date(Date.parse(item.created_at)).toDateString()}
-              </span>
+              <div className='location-time-wrapper'>
+                <span className='job-location'>&#xe80b; {item.location}</span>
+                <span className='job-time'>
+                  &#xe8b5;{' '}
+                  {new Date(Date.parse(item.created_at)).toDateString()}
+                </span>
+              </div>
             </div>
           </Link>
         ))}
