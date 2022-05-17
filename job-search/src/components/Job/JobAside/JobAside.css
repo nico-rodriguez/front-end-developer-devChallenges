@@ -2,6 +2,7 @@
   color: #1e86ff;
   display: flex;
   align-items: center;
+  margin-bottom: 32px;
 }
 
 .aside__link-back,
@@ -17,6 +18,7 @@
   line-height: 2.1rem;
   text-transform: uppercase;
   color: #b9bdcf;
+  margin-bottom: 16px;
 }
 
 .aside__content {
