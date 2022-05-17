@@ -22,6 +22,8 @@
   .form__search {
     height: auto;
     background-image: none;
+    padding-top: 0;
+    padding-bottom: 8px;
   }
 }
 
