@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import JobPage from './components/Job';
+import JobPage from './components/JobPage';
 import Search from './components/Search';
 
 function App() {
