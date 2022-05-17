@@ -10,7 +10,7 @@ export default function JobPage() {
   const { jobId } = useParams();
   const job = getJobById(jobId as string);
 
-  // Scrol page to top when viewing a job
+  // Scroll page to top when viewing a job
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
