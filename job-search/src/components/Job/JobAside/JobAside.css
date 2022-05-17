@@ -1,3 +1,7 @@
+.job-page__aside {
+  flex: 1 1 20%;
+}
+
 .aside__link-back {
   color: #1e86ff;
   display: flex;
