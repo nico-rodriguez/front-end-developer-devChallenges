@@ -1,10 +1,10 @@
 .item {
   display: flex;
   align-items: baseline;
-  gap: 7px;
 }
 
 .item__check {
+  margin-right: 7px;
   border: 1px solid #828282;
   border-radius: 4px;
 }

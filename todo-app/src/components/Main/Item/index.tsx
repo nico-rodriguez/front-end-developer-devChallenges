@@ -26,20 +26,19 @@ export default function Item({
 
   return (
     <div className='item'>
-      <input
-        type='checkbox'
-        className='item__check'
-        checked={isChecked}
-        onChange={handleCheck}
-        id='checked'
-      />
       <label
         className={
           'item__text ' +
           (isChecked ? 'item__text--checked' : 'item__text--unchecked')
         }
-        htmlFor='checked'
       >
+        <input
+          type='checkbox'
+          className='item__check'
+          checked={isChecked}
+          onChange={handleCheck}
+          id='checked'
+        />
         {message}
       </label>
       {removeItem && (
