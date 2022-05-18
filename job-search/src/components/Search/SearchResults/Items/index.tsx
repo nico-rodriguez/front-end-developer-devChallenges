@@ -7,7 +7,7 @@ export function Items({ currentItems }: { currentItems: Job[] }) {
     <>
       {currentItems &&
         currentItems.map((item) => (
-          <Link className='item' key={item.id} to={`/${item.id}`}>
+          <Link className='item' key={item.id} to={`/jobs/${item.id}`}>
             <p className='item__company'>{item.company}</p>
             <h2 className='item__title'>{item.title}</h2>
             <div className='item__details'>
