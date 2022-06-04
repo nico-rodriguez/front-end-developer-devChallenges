@@ -12,9 +12,9 @@ export default function Main() {
     setItemList((itemList) => {
       // Persist new item on Local Storage
       const itemListInStorage = JSON.parse(
-        localStorage.getItem('itemList') ?? '[]'
+        sessionStorage.getItem('itemList') ?? '[]'
       );
-      localStorage.setItem(
+      sessionStorage.setItem(
         'itemList',
         JSON.stringify(itemListInStorage.concat(item))
       );
@@ -31,20 +31,39 @@ export default function Main() {
       );
 
       // Update item list in Local Storage
-      localStorage.setItem('itemList', JSON.stringify(newItemList));
+      sessionStorage.setItem('itemList', JSON.stringify(newItemList));
 
       return newItemList;
     });
   };
 
   const handleRemoveItem = (index: number) => () => {
+    console.log('handleRemoveItem');
+
     setItemList((itemList) => {
       const newListItem = itemList.filter(
         (item, listIndex) => listIndex !== index
       );
 
       // Update item list in Local Storage
-      localStorage.setItem('itemList', JSON.stringify(newListItem));
+      sessionStorage.setItem('itemList', JSON.stringify(newListItem));
+
+      return newListItem;
+    });
+  };
+
+  const handleRemoveAllItems = () => {
+    const checkedItemsIndexList = itemList
+      .map(({ checked }, index) => (checked ? index : -1))
+      .filter((index) => index !== -1);
+
+    setItemList((itemList) => {
+      const newListItem = itemList.filter(
+        (item, listIndex) => checkedItemsIndexList.indexOf(listIndex) === -1
+      );
+
+      // Update item list in Local Storage
+      sessionStorage.setItem('itemList', JSON.stringify(newListItem));
 
       return newListItem;
     });
@@ -53,14 +72,9 @@ export default function Main() {
   // Retrieve the items list from the Local Storage if available
   useEffect(() => {
     const itemListInStorage = JSON.parse(
-      localStorage.getItem('itemList') ?? JSON.stringify(initialNotes)
+      sessionStorage.getItem('itemList') ?? JSON.stringify(initialNotes)
     );
     setItemList(itemListInStorage);
-
-    return () => {
-      // Clear Local Storage when exiting
-      localStorage.removeItem('itemList');
-    };
   }, []);
 
   return (
@@ -106,6 +120,16 @@ export default function Main() {
               removeItem={handleRemoveItem(index)}
             />
           ) : null
+        )}
+        {itemList.filter(({ checked }) => checked).length > 0 && (
+          <button
+            className='delete-all-button'
+            type='button'
+            onClick={handleRemoveAllItems}
+          >
+            <span className='material-icons'>delete</span>
+            delete all
+          </button>
         )}
       </TabPanel>
     </Tabs>

@@ -40,3 +40,22 @@
 .react-tabs__tab-panel--selected {
   display: block;
 }
+
+.delete-all-button {
+  background-color: #eb5757;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: auto;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.delete-all-button .material-icons {
+  color: white;
+  margin-right: 4px;
+}
