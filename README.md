@@ -2,7 +2,7 @@
 
 ## :star2: About the Project
 
-Solutions to the [Front-end Developer challenges](https://devchallenges.io/paths/front-end-developer) from [devChallenges](https://devchallenges.io/).
+Front-end web applications. Solutions to the [Front-end Developer challenges](https://devchallenges.io/paths/front-end-developer) from [devChallenges](https://devchallenges.io/).
 
 ### :gear: Tech Stack
 
