@@ -1,0 +1,12 @@
+[submodule "job-search"]
+	path = job-search
+	url = git@github.com:nico-rodriguez/job-search.git
+[submodule "quote-generator"]
+	path = quote-generator
+	url = git@github.com:nico-rodriguez/quote-generator.git
+[submodule "todo-app"]
+	path = todo-app
+	url = git@github.com:nico-rodriguez/todo-app.git
+[submodule "windbnb"]
+	path = windbnb
+	url = git@github.com:nico-rodriguez/windbnb.git
